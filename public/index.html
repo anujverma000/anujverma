@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <title>Anuj's Blog</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <span>Enable Dark Mode</span>
+    </div>
+    <script>
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+      if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+          toggleSwitch.checked = true;
+        }
+      }
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', '');
+          localStorage.setItem('theme', '');
+        }    
+      }
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+    <style>
+      .theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+        float: right;
+        padding: 24px;
+      }
+
+      .theme-switch-wrapper span {
+        margin-left: 10px;
+        font-size: 1rem;
+      }
+      .theme-switch-wrapper .theme-switch {
+        display: inline-block;
+        height: 34px;
+        position: relative;
+        width: 60px;
+      }
+
+      .theme-switch-wrapper .theme-switch input {
+        display:none;
+      }
+
+      .theme-switch-wrapper .slider {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: .4s;
+      }
+
+      .theme-switch-wrapper .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 26px;
+      }
+      .theme-switch-wrapper input:checked + .slider {
+        background-color: #66bb6a;
+      }
+      .theme-switch-wrapper input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .theme-switch-wrapper .slider.round {
+        border-radius: 34px;
+      }
+      .theme-switch-wrapper .slider.round:before {
+        border-radius: 50%;
+      }
+    </style>
+    <div id="root"></div>
+  </body>
+</html>

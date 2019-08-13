@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic');
+
+:root {
+  --primary-color: #03A9F4;
+  --secondary-color: 2e2f3e;
+}
+
+:global * {
+  box-sizing: border-box;
+}
+
+:global html {
+  color: var(--secondary-color);
+  font: 100%/1.75 'Roboto', sans-serif;
+}
+
+:global body {
+  font-kerning: normal;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+:global(pre),
+:global(code) {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+:global pre {
+  border-radius: 10px;
+  overflow: auto;
+  padding: 1em;
+}
+
+:global a {
+  color: var(--primary-color);
+}
+:global a:hover {
+  text-decoration: none;
+}
+
+:global p,
+:global pre,
+:global ul,
+:global ol {
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+/** Dark Theme **/
+
+[data-theme='dark']{
+  --primary-color: #0275a8;
+  color: #bdbdbd;
+  background-color: #2e2f3e;
+  transition: .4s;
+}
