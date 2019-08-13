@@ -32,12 +32,12 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
       }
       <footer className={styles.footer}>
         <div>
-          {/* <a
+          {/* { <a
             href='./rss.xml'
             target='_blank'
             style={{ float: 'right' }}>
             RSS
-          </a> */}
+          </a>} */}
           <Link href='./about'>
             About
           </Link> &bull;{' '}

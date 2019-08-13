@@ -1,5 +1,5 @@
 export default {
-  title: "Anuj Verma",
+  title: "Anuj's blog",
 
   author: "Anuj Verma",
   description: "A personal blog of Anuj Verma",
