@@ -14,10 +14,12 @@ function Bio(props) {
       ${props.className || ''}
     `}>
       <img src={photoURL} alt="Me" />
-      <p>
-        <span>I practice what I post.</span>
-        <small className="subtitle">The best things come from living outside of your comfort zone.</small>
-      </p>
+      <div>
+        <div>I practice what I post.</div>
+        <div>
+          <small className="subtitle">The best things come from living outside of your comfort zone.</small>
+        </div>
+      </div>
     </div>
   )
 }

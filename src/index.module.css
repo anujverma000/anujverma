@@ -12,7 +12,7 @@
 
 :global html {
   color: var(--secondary-color);
-  font: 100%/1.75 'Roboto', sans-serif;
+  font: 115%/1.75 'Roboto', sans-serif;
 }
 
 :global body {
