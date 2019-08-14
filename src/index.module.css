@@ -3,6 +3,7 @@
 :root {
   --primary-color: #03A9F4;
   --secondary-color: 2e2f3e;
+  color: #2a2f2f;
 }
 
 :global * {

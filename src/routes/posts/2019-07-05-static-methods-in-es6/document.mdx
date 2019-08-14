@@ -1,0 +1,46 @@
+Static methods aren't any new idea. Other languages have this for very long time.  
+If you have experience of other backend languages, this concept will not look very different than other languages.
+
+`Basically static methods are useful in classes to define utility functions for all the instances.`
+
+```js
+class Rectangle {
+  constructor(width, height){
+    this.width = width;
+    this.height = height; 
+  }
+  static area(rect) {
+    return rect.width * rect.height
+  }
+}
+
+let r = new Rectangle(10, 10);
+console.log(Rectangle.area(r)); // 100
+```
+
+# Important points to keep in mind
+ - Static methods are not accessible using `this` in non-static methods.
+ - Static methods should not use `this` as instance is not available. `this` in static method refers to class not instance.
+ - You can override static methods.
+
+```js
+class Square extends Rectangle {
+  constructor(width){
+    super(width, width)
+  }
+
+  static area(rect) {
+    return rect.width * rect.rect
+  }
+}
+
+let s = new Square(5);
+console.log(Rectangle.area(s)); // 25
+```
+
+# When use static methods
+
+ - If you are writing utility classes and they are not supposed to be changed.
+ - If the method is not using any instance variable.
+ - If any operation is not dependent on instance creation. 
+ - If there is some code that can easily be shared by all the instance methods, extract that code into a static method.
