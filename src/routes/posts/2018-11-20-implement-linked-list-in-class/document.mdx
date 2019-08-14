@@ -1,0 +1,113 @@
+ES6 classes are very handy feature of javascript. Main advantage is that it makes code more readable than it prototypal counterpart.
+I know  `Classes are syntatic suger over the prototypal implementation.`
+
+Still its a great addition to the language. As it make code more modular and maintainable.
+
+Here we are going to try to make a Linked list implementation using ES6 Classes.
+Its not really a tutorial of classes or LinkedList, but to show how easy code becomes with use of classes.
+
+Here we go...
+
+First we going to Node class of the LinkedList. 
+
+```js
+class Node {
+  constructor(data){
+    this.data = data;
+    this.next = null;
+  }
+}
+```
+
+It becomes very easy to maintain if the node class is maintained separately.  
+We can always add more methods to this class, even we can extend the existing class for new types as needed.
+
+Let's define out LinkedList class
+
+```js
+class LinkedList {
+  constructor(){
+    this.head = null;
+  }
+}
+```
+
+This is as simple as that.  
+We are going to add more methods for LinkedList to be more functional.
+
+Lets try to define add method to it.
+
+ - If head is empty assign the first node as head node.
+ - If head is not empty, traverse through all the nodes where the next is empty. 
+ - Assign the new node as the next node of the last node.
+
+```js
+  add(node){
+    if(this.head === null){
+      this.head = node;
+    }else{
+      let current = this.head;
+      while(current.next != null){
+        current = current.next;
+      }
+      current.next = node;
+    }
+  }
+```
+
+Next, Lets try to add print method to LinkedList before we go to test it
+
+```js
+  print(){
+    let current = this.head;
+    while(current){
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+```
+
+Our LinkedList implementation to add and print is ready. To sum it up, it will be like.
+
+```js
+class LinkedList {
+  constructor(){
+    this.head = null;
+  }
+
+  add(node){
+    if(this.head === null){
+      this.head = node;
+    }else{
+      let current = this.head;
+      while(current.next != null){
+        current = current.next;
+      }
+      current.next = node;
+    }
+  }
+
+  print(){
+    let current = this.head;
+    while(current){
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+}
+```
+
+Lets test out implementation with following code.
+
+```js
+let linkedList = new LinkedList();
+
+// add few nodes
+linkedList.add(new Node(1));
+linkedList.add(new Node(2));
+linkedList.add(new Node(3));
+
+//print linked list.
+linkedList.print();
+
+```
