@@ -1,0 +1,74 @@
+Finally there is an standard way to meta-program for javascript objects.  
+Proxy object is more generalized way of overriding or extending the behavior of some fundamental operations on object.  
+
+For starter consider a problem if the given property available in object invoke a given callback function.  
+_Simple solution: keep running an infinite loop and keep checking._
+
+I know you hate this solution. And there is a better way to achieve this with proxy.  
+Let me give a quick solution to this problem.  
+
+### Define a proxy object
+```javascript
+  let user = {};
+  user = new Proxy(user, {});
+```
+
+From the code above, its very easy to define the proxy functions. 
+It take two parameters,
+ - First is the target object whose we want to extend the behavior.
+ - Second is `handler` object.
+    - handler object defines the `traps`. Yes these are called traps.
+
+ ```javascript
+    let handler = {
+      set: function(val){
+         // call the callback function.
+      }
+    }
+ ```
+
+ Let's see how it can be a reusable function
+
+ ```javascript
+    const whenAvailable = (target, property, callback) => 
+      new Proxy(target, {
+        set: (object, property, value) => { 
+          // store the value in property of object.
+          object[property] = value;
+
+          //call the callback
+          callback(value);
+
+          //return success
+          return true;
+        } 
+    });
+
+    // Lets define a new object user object. If the user is set to loggedIn, do some stuff.
+    let user = {};
+    user = whenAvailable(user, 'isLoggedIn', (isLoggedInStatus) => {
+      if(isLoggedInStatus){
+        // do some stuff.
+      }
+    })
+
+    // some where else, if user is set to LoggedIn
+    user.isLoggedIn = true;
+ ```
+Now you can understand how powerful Proxy is. We have seen the use of `set` trap. There are many more of these traps. 
+
+  - handler.get 
+  - handler.set
+  - handler.has
+  - handler.apply
+  - handler.construct
+  - handler.ownKeys
+  - handler.deleteProperty
+  - handler.defineProperty
+  - handler.isExtensible
+  - handler.preventExtensions
+  - handler.getPrototypeOf
+  - handler.setPrototypeOf
+  - handler.getOwnPropertyDescriptor
+
+Read about other trap on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler)

@@ -3,7 +3,8 @@
 :root {
   --primary-color: #03A9F4;
   --secondary-color: 2e2f3e;
-  color: #2a2f2f;
+  --text-color: #2a2f2f;
+  color: var(--text-color);
 }
 
 :global * {
@@ -54,7 +55,8 @@
 /** Dark Theme **/
 
 [data-theme='dark']{
-  --primary-color: #0275a8;
+  --primary-color: #63cfff;
+  --text-color: #bdbdbd;
   color: #bdbdbd;
   background-color: #2e2f3e;
   transition: .4s;

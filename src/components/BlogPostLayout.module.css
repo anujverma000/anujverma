@@ -113,13 +113,13 @@
 /* Inline code */
 .content :not(pre) > code {
   border-radius: .3em;
-  background: rgba(255,229,100,0.5);
-  color: #1a1a1a;
-  padding: .15em;
+  background: #86868680;
+  color: var(--text-color);
+  padding: .2em .4em;
   white-space: normal;
 }
 .content a > code {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .content :global(.highlighted-line) {
