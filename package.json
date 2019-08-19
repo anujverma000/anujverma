@@ -25,8 +25,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "navi-scripts serve",
-    "deploy": "netlify deploy --dir=build",
-    "deploy:prod": "react-scripts build && netlify deploy --dir=build --prod"
+    "deploy": "netlify deploy --dir=build --prod",
+    "build-deploy": "yarn build && yarn deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
