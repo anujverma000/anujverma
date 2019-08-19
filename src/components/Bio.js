@@ -13,7 +13,7 @@ function Bio(props) {
       ${styles.Bio}
       ${props.className || ''}
     `}>
-      <img src={photoURL} alt="Me" />
+      <img loading="lazy" src={photoURL} alt="Me" />
       <div>
         <div>I practice what I post.</div>
         <div>

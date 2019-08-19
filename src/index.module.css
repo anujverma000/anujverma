@@ -15,7 +15,7 @@
 
 :global html {
   color: var(--secondary-color);
-  font: 115%/1.75 'Tajawal', sans-serif;
+  font: 120%/2 'Tajawal', sans-serif;
 }
 
 :global body {
@@ -26,11 +26,6 @@
   word-wrap: break-word;
 }
 
-:global(pre),
-:global(code) {
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
 :global pre {
   border-radius: 10px;
   overflow: auto;
@@ -49,7 +44,7 @@
 :global ul,
 :global ol {
   margin-top: 0;
-  margin-bottom: 1.75rem;
+  margin-bottom: .45rem;
 }
 
 blockquote{
@@ -69,5 +64,5 @@ blockquote{
   --text-color: #bdbdbd;
   color: #bdbdbd;
   background-color: #2e2f3e;
-  transition: .4s;
+  transition: backgound-color .4s;
 }
