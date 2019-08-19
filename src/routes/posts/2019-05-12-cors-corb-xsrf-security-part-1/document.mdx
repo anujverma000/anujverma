@@ -1,0 +1,87 @@
+Web Security has been a concern of every web developer. I think every one should pay little more attention to handle the security aspect of the web when they are developing the website/webapp.
+
+
+In this post lets try to explain some of the key methods to enhance the security of the web sites we create.
+These are some of the most popular ways to help increase the security of web.
+
+## CORS (Cross Origin Resource Sharing)
+CORS is popular method to dis-allow scripts from other domain( domain, protocol or port) to run on your website.
+If you still want to run scripts from other domain. You need to do some work on the server side.
+That is why this policy is call cross origin resource sharing. If you want to share resources you need to explicitly enable it. 
+By default browsers will not allow it and there will be an error if you try to access the resources from other domain which are not explicitly enabled.
+ - If web page is requesting a resource on different protocol. You will get Mixed content error and request will fail.
+ - If web page is request a resource from different domain it will get error like `No 'Access-Control-Allow-Origin' header is present on the requested resource.` and request will fail.
+
+### Access-Control-Allow-Origin
+
+ To allow domain a web page to access the resources from other domains. Server should send 'Access-Control-Allow-Origin' response headers back in the response.
+ ```
+  Access-Control-Allow-Origin: *
+ ```
+
+  > \* means all the anyone can access this resource.
+
+To limit the access, you need to pass the domain name in there
+```
+  Access-Control-Allow-Origin: https://anujverma.netlify.com/
+ ```
+
+ ## Preflight request
+ If the resource is being fetched from cross-domain. Browsers will make `OPTIONS` http request for the resource first to determine
+ if it is safe to make the actual request. If the response of `OPTIONS` request is not `200 OK` with Access Control Headers, browsers will not issue actual request.
+ This is to keep in mind whenever we implement CORS we need to handle all the `OPTIONS` requests as well.
+
+ > It will be overkill to add another METHOD in your apis to support CORS. Its advisable to manage OPTIONS request response on web server like nginx or apache.
+
+
+CORS has really allowed us to have fine grained control over the resource sharing.
+
+### Access-Control-Request-Headers
+Access-Control-Request-Headers is used by the browsers in the preflight request to tell server which all headers can be available in the actual request.
+```
+  Access-Control-Request-Headers: Accept,Authorization,Cache-Control
+```
+
+### Access-Control-Allow-Header
+This will be the response header of the preflight request which send above mentioned `Access-Control-Request-Headers` to indicate which headers can be used when issuing request for actual resource.
+```
+  Access-Control-Allow-Headers: Accept,Authorization,Cache-Control
+  Access-Control-Allow-Headers: *
+```
+
+
+### Access-Control-Request-Method
+Similar to Access-Control-Request-Headers, this header is used in preflight request to tell server in which METHOD actual request will be issued.
+```
+  Access-Control-Request-Method: POST
+```
+
+### Access-Control-Allow-Method
+Similar to Access-Control-Allow-Headers, this header is used in response of preflight request to tell which all methods are allowed for the resource.
+```
+  Access-Control-Allow-Method: GET, POST, DELETE, PUT
+```
+
+### Access-Control-Expose-Headers
+This lets server to control which all headers are allowed for browsers to access from request.
+```
+  Access-Control-Expose-Headers: Authorization
+```
+
+### Access-Control-Max-Age
+This lets server to tell browsers how long preflight response can be cached in browsers.
+```
+  Access-Control-Max-Age: 86400
+```
+ > Max age is defined in seconds.
+
+
+### Access-Control-Allow-Credentials
+This header is set in the response of the preflight request to make sure if the actual request can be made with credentials or not.
+```
+  Access-Control-Allow-Credentials: true
+```
+If this header value is true, actual request can be made with using `withCredentials` in XHR or fetch Request. 
+
+Now you can understand how powerful this CORS policy is and how much control is available for customization.
+In the next blog we will understand how CORB(Cross Site Read Block) policy works.
