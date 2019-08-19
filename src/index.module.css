@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic');
+*/
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
 
 :root {
   --primary-color: #03A9F4;
@@ -13,12 +15,11 @@
 
 :global html {
   color: var(--secondary-color);
-  font: 115%/1.75 'Roboto', sans-serif;
+  font: 115%/1.75 'Tajawal', sans-serif;
 }
 
 :global body {
   font-kerning: normal;
-  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -27,7 +28,6 @@
 
 :global(pre),
 :global(code) {
-  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
   line-height: 1.5;
 }
