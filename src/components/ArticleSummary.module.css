@@ -6,3 +6,6 @@
 .ArticleSummary a {
   text-decoration: none;
 }
+.ArticleSummary h2 a {
+  color: var(--primary-color);
+}

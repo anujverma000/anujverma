@@ -4,9 +4,10 @@
   line-height: 3.5rem;
   margin-bottom: 2.625rem;
   text-rendering: optimizeLegibility;
+  color: var(--secondary-color);
 }
 .title a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
 }
 

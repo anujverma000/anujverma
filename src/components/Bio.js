@@ -16,8 +16,8 @@ function Bio(props) {
       <img loading="lazy" src={photoURL} alt="Me" />
       <div>
         <div>I practice what I post.</div>
-        <div>
-          <small className="subtitle">The best things come from living outside of your comfort zone.</small>
+        <div className="subtitle">
+          The best things come from living outside of your comfort zone.
         </div>
       </div>
     </div>
