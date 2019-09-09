@@ -2,7 +2,7 @@
 
 Let's get started by initializing project and installing dependancies.
 
-```bash
+```js
 npm init -y
 
 yarn add express graphql express-graphql graphql-import graphql-tag graphql-tools compression cors morgan
@@ -13,7 +13,7 @@ Let's try to define different schemas in different files and use `importSchema` 
 
 
 ### **schema/index.js**
-```
+```js
 const { importSchema } = require('graphql-import')
 const { makeExecutableSchema } = require('graphql-tools')
 
@@ -29,7 +29,7 @@ This will import all the schemas from `schema.graphql` file and make executable 
 Now, let's define product schema first before going to work on `schema.graphql`
 
 ### **schema/product.grpahql**
-```
+```js
 type Product {
   id: String!,
   name: String,
@@ -48,7 +48,7 @@ That's it.
 Now it's time to define `schema.graphql`. Here we will import (_import syntax is little strange_) product schema. And also we will define all the `Query` that this schema can make to fetch results. Let's get to work on it.
 
 ### **schema/schema.grpahql**
-```
+```js
 # import Product from "product.graphql"
 
 type Query {
@@ -76,7 +76,7 @@ Main part is `Query` here.
 This says that it will accept the query for products and reply an object like `ProductResult`.
 
 This can be one example query to get the list of products with their id, name and brand.
-```
+```js
 {
   products{
     {
@@ -93,7 +93,7 @@ This can be one example query to get the list of products with their id, name an
 We know how to create schema and query data. But still we have to implement resolvers to fetch and format data for any datasource.
 
 ### **resolver/product.resolver.js**
-```
+```js
 const { DEFAULT_PAGE_SIZE }  = require('../../constants')
 const ProductRepository = require('./product-repository')
 const productRepository = new ProductRepository()
@@ -137,7 +137,7 @@ How to combine all the resolvers ??
 Import all the resolvers in index.js and export from there. There you go...
 
 ### **resolver/index.js**
-```
+```js
 const products = require('./product/product.resolver')
 
 module.exports = {
@@ -147,7 +147,7 @@ module.exports = {
 
 Now our schema and resolvers are ready and its time to implement our express server.
 
-```
+```js
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema')
@@ -167,7 +167,7 @@ app.listen(PORT, () => {
 
 now you can go to http://localhost:4000/graphql and try to query products.
 
-```
+```js
 {
   products{
     {
