@@ -1,0 +1,182 @@
+`express-grpahql` provides a simple way to implement graphql server.
+
+Let's get started by initializing project and installing dependancies.
+
+```bash
+npm init -y
+
+yarn add express graphql express-graphql graphql-import graphql-tag graphql-tools compression cors morgan
+```
+Next we need to implement `schema` and `resolvers` for defining and accessing data.
+
+Let's try to define different schemas in different files and use `importSchema` to combine and make typeDefs for later use.
+
+
+### **schema/index.js**
+```
+const { importSchema } = require('graphql-import')
+const { makeExecutableSchema } = require('graphql-tools')
+
+const typeDefs = importSchema('./schema/schema.graphql')
+
+const schema = makeExecutableSchema({ typeDefs })
+
+module.exports = schema
+```
+
+This will import all the schemas from `schema.graphql` file and make executable schema.
+
+Now, let's define product schema first before going to work on `schema.graphql`
+
+### **schema/product.grpahql**
+```
+type Product {
+  id: String!,
+  name: String,
+  slug: String,
+  brand: String,
+  type: String,
+  image: String,
+  price: Int,
+  size: String,
+  rating: Int
+}
+```
+
+That's it.
+
+Now it's time to define `schema.graphql`. Here we will import (_import syntax is little strange_) product schema. And also we will define all the `Query` that this schema can make to fetch results. Let's get to work on it.
+
+### **schema/schema.grpahql**
+```
+# import Product from "product.graphql"
+
+type Query {
+  products(brands: [String!], types: [String!], limit: Int, offset: Int, sort: OrderByInput): ProductResult!
+}
+
+type ProductResult {
+  products: [Product!]
+  total: Int!
+  hasMore: Boolean!
+}
+
+enum OrderByInput {
+  name_asc
+  name_desc
+  price_asc
+  price_desc
+}
+```
+
+We have defined `ProductResult` this is the type of result that we will get when we query products. It will have products per page and total number of products as well as has more flag, to help implement infinite scroll if UI needs one.
+Another enum `OrderByInput` is used to get the sort input form UI and perform the sort based on this type.
+
+Main part is `Query` here.
+This says that it will accept the query for products and reply an object like `ProductResult`.
+
+This can be one example query to get the list of products with their id, name and brand.
+```
+{
+  products{
+    {
+      id,
+      name,
+      brand
+    }
+    total,
+    hasMore
+  }
+}
+```
+
+We know how to create schema and query data. But still we have to implement resolvers to fetch and format data for any datasource.
+
+### **resolver/product.resolver.js**
+```
+const { DEFAULT_PAGE_SIZE }  = require('../../constants')
+const ProductRepository = require('./product-repository')
+const productRepository = new ProductRepository()
+
+const isArrayNotEmpty = arr => arr && arr.length
+
+module.exports = {
+    products: (args) => {
+        let products = productRepository.findAll()
+        ...
+
+        if(args.sort === "name_asc"){
+            products = products.sort((a, b) => a.name < b.name? -1: 1)
+        }
+        ...
+
+        const offset  = args.offset || 0
+        const limit =  args.limit || DEFAULT_PAGE_SIZE
+
+        const total = products.length;
+        const hasMore = offset + limit < total;
+
+        if(args.offset ||  args.limit){
+            products =  products.slice(offset, offset + limit)
+        }
+
+        return {
+            products,
+            total,
+            hasMore
+        }
+    }
+}
+```
+`ProductRepository` is your datasource. So you know how to get data and reply. For starter you can get a json file to work with and later configure your datasource.
+
+I have shown how to do sorting and pagination. Rest all filters you can apply very easily. All the query params you will get in `args` object and you can use that to get the relevant data.
+
+How to combine all the resolvers ??
+
+Import all the resolvers in index.js and export from there. There you go...
+
+### **resolver/index.js**
+```
+const products = require('./product/product.resolver')
+
+module.exports = {
+  ...products,
+}
+```
+
+Now our schema and resolvers are ready and its time to implement our express server.
+
+```
+const express = require('express')
+const graphqlHTTP = require('express-graphql')
+const schema = require('./schema')
+const root = require('./resolvers')
+
+const app = express()
+const normalisePort = port => parseInt(port, 10)
+const PORT = normalisePort(process.env.PORT || 4000)
+
+app.use('/graphql', graphqlHTTP({ schema, rootValue: root, graphiql: true }))
+
+app.listen(PORT, () => {
+  console.log(`Server Started !`)
+})
+
+```
+
+now you can go to http://localhost:4000/graphql and try to query products.
+
+```
+{
+  products{
+    {
+      id,
+      name,
+      brand
+    }
+    total,
+    hasMore
+  }
+}
+```
