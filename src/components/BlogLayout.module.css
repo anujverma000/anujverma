@@ -13,3 +13,9 @@
   color: var(--text-color);
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .container{
+    max-width: 90%;
+  }
+}

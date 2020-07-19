@@ -47,8 +47,36 @@
   color: var(--text-color);
 }
 
-.super{
-  font-size: 18px;
-  color: var(--light-color);
-  display: none;
+@media (max-width: 1100px) {
+  .Bio img {
+    width: 240px;
+    height: 240px;
+    border-width: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .Bio img {
+    width: 120px;
+    height: 120px;
+    border-width: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Bio{
+    flex-direction: column;
+    align-items: center;
+  }
+  .Bio img {
+    margin-bottom: 1.75rem;
+  }
+  .titleName{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .bioDetails{
+    align-items: center;
+    margin-left: 0;
+  }
 }

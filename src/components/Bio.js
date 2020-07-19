@@ -15,7 +15,6 @@ function Bio(props) {
     `}>
       <img loading="lazy" src={photoURL} alt="Me" />
       <div className={`${styles.bioDetails}`}>
-        <div className={`${styles.super}`}>Sateless and Pure</div>
         <h1 className={`${styles.titleName}`}>Anuj Verma</h1>
         <div className={`${styles.bioDesc}`}>
           <p>Software specialist with over 10 years experience in commercial software development.</p>

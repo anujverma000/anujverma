@@ -11,7 +11,7 @@ export default Navi.route({
 function Contact() {
   return (
     <>
-    <h1>Contact</h1>
+    <h1>Get In Touch</h1>
     <div className={contactStyles.contactFormWrapper}>
       <div>
         <div>Dubai, UAE</div>
