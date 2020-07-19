@@ -38,7 +38,7 @@ register({
       <HelmetProvider>
         <header className={styles.mainHeader}>
           <a href='/'>
-            <img src="/icon.png"></img>
+            <img alt="Anuj'Blog" src="/icon.png"></img>
             <span className={styles.headerTitle}>
               <strong>Anuj</strong> Verma
             </span>
