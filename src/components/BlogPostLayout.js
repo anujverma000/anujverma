@@ -18,7 +18,7 @@ function BlogPostLayout({ blogRoot }) {
     <>
       {head}
       <article className={styles.container}>
-        <header className={styles.header}>
+        <div className={styles.header}>
           <h1 className={styles.title}>
             <Link href={url.pathname}>{title}</Link>
           </h1>
@@ -27,7 +27,7 @@ function BlogPostLayout({ blogRoot }) {
             meta={data}
             readingTime={readingTime}
           />
-        </header>
+        </div>
         <MDXProvider components={{
           a: Link,
           wrapper: ({ children }) =>
@@ -38,11 +38,6 @@ function BlogPostLayout({ blogRoot }) {
           <MDXComponent />
         </MDXProvider>
         <footer className={styles.footer}>
-          <h3 className={styles.title}>
-            <Link href={blogRoot}>
-              {siteMetadata.title}
-            </Link>
-          </h3>
           <Bio className={styles.bio} />
           <section className={styles.links}>
             {

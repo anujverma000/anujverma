@@ -21,11 +21,11 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
   return (
     <small className={styles.ArticleMeta}>
       <time dateTime={meta.date.toUTCString()}>{formatDate(meta.date)}</time>
+      {readingTimeElement || null}
       {
         meta.tags &&
         meta.tags.length &&
-        <>
-          {' '}&bull;{' '}
+        <div>
           <ul className={styles.tags}>
             {meta.tags.map(tag =>
               <li key={tag}>
@@ -33,9 +33,8 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
               </li>
             )}
           </ul>
-        </>
+        </div>
       }
-      {readingTimeElement || null}
     </small>
   )
 }

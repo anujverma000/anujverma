@@ -4,10 +4,10 @@
   line-height: 3.5rem;
   margin-bottom: 2.625rem;
   text-rendering: optimizeLegibility;
-  color: var(--secondary-color);
+  color: var(--text-color);
 }
 .title a {
-  color: var(--secondary-color);
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -19,6 +19,11 @@
 }
 
 .footer {
-  margin-top: 7rem;
-  margin-bottom: 0.5rem;
+  margin: 7rem 0;
+  color: var(--text-color);
+}
+.footer a {
+  text-decoration: underline;
+  color: var(--text-color);
+  font-size: 16px;
 }

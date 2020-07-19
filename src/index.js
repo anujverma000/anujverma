@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "react-navi";
 import HelmetProvider from "react-navi-helmet-async";
-import "./index.module.css";
+import styles from "./index.module.css";
 import routes from "./routes";
 import * as serviceWorker from "./serviceWorker";
 
@@ -36,6 +36,14 @@ register({
     // rendering the top-level view.
     renderer(
       <HelmetProvider>
+        <header className={styles.mainHeader}>
+          <a href='/'>
+            <img src="/icon.png"></img>
+            <span className={styles.headerTitle}>
+              <strong>Anuj</strong> Verma
+            </span>
+          </a>
+        </header>
         <Router navigation={navigation} />
       </HelmetProvider>,
       document.getElementById("root")

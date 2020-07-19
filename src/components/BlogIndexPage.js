@@ -9,12 +9,9 @@ import styles from './BlogIndexPage.module.css'
 function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
   return (
     <div>
-      <header>
-        <h1 className={styles.title}>
-          <Link href={blogRoot}>{siteMetadata.title}</Link>
-        </h1>
+      <div>
         <Bio />
-      </header>
+      </div>
       <ul className={styles.articlesList}>
         {postRoutes.map(route =>
           <li key={route.url.href}>
@@ -32,12 +29,6 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
       }
       <footer className={styles.footer}>
         <div>
-          {/* { <a
-            href='./rss.xml'
-            target='_blank'
-            style={{ float: 'right' }}>
-            RSS
-          </a>} */}
           <Link href='./about'>
             About
           </Link> &bull;{' '}

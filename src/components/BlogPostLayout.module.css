@@ -16,7 +16,7 @@
   margin-bottom: 0;
 }
 .header .title > a {
-  color: var(--secondary-color);;
+  color: var(--text-color);;
 }
 
 .footer {
@@ -28,7 +28,7 @@
   margin-bottom: 2.4rem;
 }
 .footer .title > a {
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .bio {
@@ -38,6 +38,7 @@
 .links {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 7rem;
 }
 .links .next {
   flex-grow: 1;
