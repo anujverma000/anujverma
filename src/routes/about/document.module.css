@@ -6,3 +6,18 @@
   margin-bottom: 2.4rem;  
   text-rendering: optimizeLegibility;
 }
+
+.contact{
+  font-size: 14px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 12px;
+  margin-bottom: 36px;
+}
+.contact .contactIcon{
+  width: 28px;
+  padding-right: 12px;
+  vertical-align: middle;
+}
+.contact .contactItem{
+  padding: 0 24px;
+}

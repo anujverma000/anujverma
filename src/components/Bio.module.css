@@ -80,3 +80,33 @@
     margin-left: 0;
   }
 }
+
+.primaryButton, .button{
+  display: inline-block;
+  padding: 6px 32px;
+  margin: 12px;
+  font-size: 16px;
+  line-height: 1.2;
+  border: 2px solid #d5d5d5;
+  outline: 0;
+  background-color: #fff;
+  box-shadow: 0px 10px 10px -8px #d5d5d5;
+  color: #666;
+  text-shadow: none;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover{
+  color: #333;
+  border-color: #d5d5d5;
+  background-color: #d5d5d5;
+}
+
+.primaryButton{
+  border-color: var(--primary-color); 
+}
+.primaryButton:hover{
+  color: #fff;
+  background-color: var(--primary-color);
+}
