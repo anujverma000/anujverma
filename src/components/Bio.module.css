@@ -1,13 +1,13 @@
 .Bio {
   display: flex;
-  margin-bottom: 4.375rem;
+  margin-bottom: 40px;
 }
   
 .Bio img {
   border-radius: 50%;
   flex-shrink: 0;
   margin-bottom: 0;
-  margin-right: 0.875rem;
+  margin-right: 12px;
   width: 320px;
   height: 320px;
   border: 18px solid #ffff;
@@ -38,7 +38,9 @@
   line-height: 1.75em;
   color: #666666;
 }
-
+.bioDesc p {
+  margin-bottom: 12px;
+}
 .titleName{
   font-size: 48px;
   line-height: 56px;
@@ -69,10 +71,10 @@
     align-items: center;
   }
   .Bio img {
-    margin-bottom: 1.75rem;
+    margin-bottom: 18px;
   }
   .titleName{
-    font-size: 1.5rem;
+    font-size: 24px;
     text-align: center;
   }
   .bioDetails{

@@ -19,7 +19,7 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
   }
       
   return (
-    <small className={styles.ArticleMeta}>
+    <div className={styles.ArticleMeta}>
       <time dateTime={meta.date.toUTCString()}>{formatDate(meta.date)}</time>
       {readingTimeElement || null}
       {
@@ -35,7 +35,7 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
           </ul>
         </div>
       }
-    </small>
+    </div>
   )
 }
 

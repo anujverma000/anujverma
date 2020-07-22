@@ -37,7 +37,6 @@ function BlogPostLayout({ blogRoot }) {
           <MDXComponent />
         </MDXProvider>
         <footer className={styles.footer}>
-          <Bio className={styles.bio} />
           <section className={styles.links}>
             {
               data.previousDetails &&
@@ -53,6 +52,9 @@ function BlogPostLayout({ blogRoot }) {
             }
           </section>
         </footer>
+        <div className={styles.bioContainer}>
+          <Bio className={styles.bio} />
+        </div>
       </article>
     </>
   )

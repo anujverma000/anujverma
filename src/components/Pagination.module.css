@@ -1,11 +1,11 @@
 .Pagination {
   display: block;
-  margin: 4.375rem 0 7rem;
+  margin: 32px 0 64px;
 }
   
 .Pagination .previous {
-  margin-right: 0.5rem;
+  margin-right: 12px;
 }
 .Pagination .next {
-  margin-left: 0.5rem;
+  margin-left: 12px;
 }

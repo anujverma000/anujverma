@@ -1,17 +1,20 @@
-.Document h1 {
-  font-size: 2.5rem;
+.about h1 {
+  font-size: 25px;
   font-weight: 900;
   line-height: 1.1;
-  margin-top: 1.7rem;
-  margin-bottom: 2.4rem;  
+  margin-top: 18px;
+  margin-bottom: 24px;  
   text-rendering: optimizeLegibility;
 }
 
 .contact{
   font-size: 14px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
   padding-bottom: 12px;
   margin-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .contact .contactIcon{
   width: 28px;
@@ -19,5 +22,5 @@
   vertical-align: middle;
 }
 .contact .contactItem{
-  padding: 0 24px;
+  padding: 12px;
 }
