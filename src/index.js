@@ -31,7 +31,7 @@ register({
     // `ReactDOM.render` when it is empty.
     let hasStaticContent = process.env.NODE_ENV === "production";
     let renderer = hasStaticContent ? ReactDOM.hydrate : ReactDOM.render;
-
+    let year = new Date().getFullYear();
     // Start react, passing in the current navigation state and
     // rendering the top-level view.
     renderer(
@@ -45,6 +45,9 @@ register({
           </a>
         </header>
         <Router navigation={navigation} />
+        <footer className={styles.pageFooter}>
+          © {year} All rights reserved
+        </footer>
       </HelmetProvider>,
       document.getElementById("root")
     )

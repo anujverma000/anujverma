@@ -78,6 +78,13 @@ header{
   margin-left: 12px;
 }
 
+.pageFooter{
+  padding: 24px 40px;
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  color: var(--light-color);
+}
 
 .inputText {
   transition: all 0.2s;
