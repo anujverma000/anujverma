@@ -1,0 +1,47 @@
+React Native helps us to write code once and run on android and iOs at the same time.
+
+It has its on issues, that let developers to think against of it. 
+Let me tell you, these issues are getting fixed by core team of react native and its awesome community, each passing day.
+
+
+Fixing these performance issues has two parts in it.
+
+## Finding what is slow and Fixing what is slow
+ - Measure you app
+ - Find something that takes time to Load
+ - Find something that can be loaded later.
+ - Find what all can be loaded in parallel.
+
+If your app is slow, you need to find out what `slow` means.
+
+## Slow
+Let understand what slow means:
+
+ - Load time is slow.
+ - Animation is slow.
+ - Data Fetch is slow.
+ - Scroll through long list is slow.
+
+Now we know what slow is lets, what we can do about it.
+ 
+### Options we have :
+ - Since imports are eager loading, we can delay loading components which are not needed on startup. Should start using old common js inline `require`.
+ - RAM Bundling, best works on iOS
+ - Use keys for list
+ - Create Trace Component
+    ```js
+      <Trace type='start' name='MyComponent'/>
+        <MyComponent />
+      <Trace type='stop' name='MyComponent'/>
+      
+      class Trace = ({type, name}) => {
+        // Get the performance metrics and send to server
+        metrics[name][type] = performanceNow();
+      }
+    ``` 
+ - Use `react-devtools` for debugging
+ - Network
+    - Render mock data, so layout is done and react has to done way less work when data is available.
+    - To make a networks calls from javascript, JS engine needs to be up, It will delay making the network calls on the startup. Move network to native implementation.
+ - Remove console.* statements.
+
