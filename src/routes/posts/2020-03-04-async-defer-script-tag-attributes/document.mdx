@@ -1,0 +1,25 @@
+# async/defer
+> **`async` is better**
+
+## Without any async and defer
+
+- Script tag without attributes will parse HTML till it hits the script tag
+- then download the script, parse and execute it
+- Resume parsing HTML
+
+## **Async**
+
+- Downloads the script in parallel to HTML parsing,
+- When script is available, pause the parsing, execute the script
+- Order of execution of scripts is not guaranteed, as script will execute as its available
+
+## Defer
+
+- Downloads the script in parallel to HTML parsing
+- Execute scripts after the HTML parsing,
+- Order of execution of scripts is guaranteed.
+
+## Both async and defer
+
+- Browsers which supports async, execute as async
+- Old browsers executes as defer.

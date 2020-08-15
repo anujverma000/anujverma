@@ -51,6 +51,9 @@
   text-align: right;
 }
 
+.content{
+  line-height: 26px;
+}
 .content hr {
   background: hsla(0,0%,0%,0.2);
   border: none;
@@ -67,7 +70,13 @@
   margin-top: 32px;
   text-rendering: optimizeLegibility;
 }
-  
+.content blockquote{
+  border-left: 4px solid;
+  padding-left: 24px;
+  font-size: 18px;
+  color: #635454;
+  font-style: italic;
+}
 .content code,
 .content pre {
   color: white;
