@@ -3,6 +3,7 @@ import { Link, useCurrentRoute, useView } from 'react-navi'
 import { MDXProvider } from '@mdx-js/react'
 import ArticleMeta from './ArticleMeta'
 import Bio from './Bio'
+import { formatDate } from '../utils/formats'
 import styles from './BlogPostLayout.module.css'
 
 function BlogPostLayout({ blogRoot }) {
@@ -18,6 +19,7 @@ function BlogPostLayout({ blogRoot }) {
       {head}
       <article className={styles.container}>
         <div className={styles.header}>
+        <time dateTime={data.date.toUTCString()}>{formatDate(data.date)}</time>
           <h1 className={styles.title}>
             <Link href={url.pathname}>{title}</Link>
           </h1>

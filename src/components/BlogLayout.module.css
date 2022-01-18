@@ -14,8 +14,8 @@
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container{
-    max-width: 90%;
+    max-width: 100%;
   }
 }

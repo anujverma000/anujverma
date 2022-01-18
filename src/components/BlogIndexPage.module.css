@@ -10,11 +10,11 @@
   text-decoration: none;
 }
 
-.articlesList,
 .articlesList > li {
   list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
+  padding: 18px 0;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--border-light-color);
 }
 
 .footer {

@@ -27,14 +27,14 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
         />
       }
       <footer className={styles.footer}>
-        <div>
+        {/* <div>
           <Link href='./about'>
             About
           </Link> &bull;{' '}
           <Link href='./tags'>
             Tags
           </Link>
-        </div>
+        </div> */}
       </footer>
     </div>
   )

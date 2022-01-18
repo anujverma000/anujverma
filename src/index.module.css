@@ -3,6 +3,7 @@
   --primary-color: #00aafb;
   --text-color: #212223;
   --light-color: #626465;
+  --border-light-color: #e1e1e1;
   --white: #ffffff;
   color: var(--text-color);
   background-color: var(--white);
@@ -63,8 +64,9 @@
 :global pre,
 :global ul,
 :global ol {
+  padding: 0;
   margin-top: 0;
-  margin-bottom: 48px;
+  margin-bottom: 12px;
 }
 
 header{
@@ -82,7 +84,6 @@ header{
   padding: 24px 40px;
   font-size: 12px;
   text-align: center;
-  border-top: 1px solid #eee;
   color: var(--light-color);
 }
 

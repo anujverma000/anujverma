@@ -4,6 +4,7 @@
 time{
   margin-top: 12px;
   display: inline-block;
+  color: var(--light-color);
 }
 .tags{
   display: inline-block;
@@ -19,13 +20,9 @@ time{
 }
 
 .tags li a{
-  padding: 4px 12px;
-  margin: 0 4px;
-  color: var(--white);
-  background-color: var(--light-color);
-  border-radius: 10px;
-  font-size: 12px;
+  padding: 4px 12px 4px 0;
   text-decoration: none;
+  color: var(--primary-color);
 }
 .tags li a:first-child{
   margin-left: 0;

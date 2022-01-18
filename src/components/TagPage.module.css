@@ -1,10 +1,9 @@
 .TagPage > h1 {
-  font-size: 24px;
-  font-weight: 900;
   line-height: 1.1;
-  margin-top: 18px;
-  margin-bottom: 24px;  
   text-rendering: optimizeLegibility;
+  font-size: 42px;
+  margin: 18px 0;
+  font-weight: 400;
 }
 
 .TagPage > ul {
@@ -14,6 +13,8 @@
 }
 
 .TagPage > ul > li {
-  margin: 0;
-  padding: 0;
+  list-style: none;
+  padding: 18px 0;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--border-light-color);
 }
