@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-navi'
 import ArticleSummary from './ArticleSummary'
 import Bio from './Bio'
 import Pagination from './Pagination'
